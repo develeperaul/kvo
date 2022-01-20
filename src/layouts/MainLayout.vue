@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="lhh lpr lFf">
+    <!-- <q-header elevated>
       <q-toolbar>
         <q-btn
           flat
@@ -17,9 +17,9 @@
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
-    </q-header>
+    </q-header> -->
 
-    <q-drawer
+    <!-- <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
       bordered
@@ -37,8 +37,14 @@
           v-bind="link"
         />
       </q-list>
-    </q-drawer>
+    </q-drawer> -->
 
+    <q-footer class="footer__nav">
+      <NavLink name="history" />
+      <NavLink name="create"  />
+      <NavLink name="user"  />
+      
+    </q-footer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -47,7 +53,7 @@
 
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
-
+import NavLink from 'components/NavLink';
 const linksList = [
   {
     title: 'Docs',
@@ -99,7 +105,8 @@ export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    EssentialLink,
+    NavLink
   },
 
   setup () {
@@ -115,3 +122,12 @@ export default defineComponent({
   }
 })
 </script>
+<style lang="scss">
+  .footer__nav{
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+</style>
